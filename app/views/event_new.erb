@@ -1,0 +1,34 @@
+<h2>New Event:</h2>
+
+<form action="/events/create" method="post">
+  <input type="text" name="title" placeholder="Event Title" value="<%=@event_title%>"><br>
+  <% if @errors %>
+    <% @errors[:title].each do |title_error| %>
+      <%= title_error %>
+      <br>
+    <% end %>
+  <% end %>
+  <input type="text" name="organizer_name" placeholder="Organizer Name" value="<%=@event_name%>"><br>
+  <% if @errors %>
+    <% @errors[:organizer_name].each do |organizer_name_error| %>
+      <%= organizer_name_error %>
+      <br>
+    <% end %>
+  <% end %>
+  <input type="text" name="organizer_email" placeholder="Organizer Email" value="<%=@event_email%>"><br>
+  <% if @errors %>
+    <% @errors[:organizer_email].each do |email_error| %>
+      <%= email_error %>
+      <br>
+    <% end %>
+  <% end %>
+  <input type="date" name="date" value="<%=@event_date%>"><br>
+  <% if @errors %>
+    <% @errors[:date].each do |date_error| %>
+      <%= date_error %>
+      <br>
+    <% end %>
+  <% end %>
+
+  <input type="submit" value="Submit">
+</form>
