@@ -14,11 +14,11 @@ passes validation rules.
 Add validations to the Event model and show appropriate messages to the user
 when the validations fail.
 
-1. Prevent Events from being saved when:
-  a. The events date is empty, in the past, or is not valid.
-  b. The events title is already taken or empty.
-  c. The event organizers name is empty.
-  d. The event organizers email address is invalid.
+1. Prevent Events from being saved when:  
+    a. The events date is empty, in the past, or is not valid.  
+    b. The events title is already taken or empty.  
+    c. The event organizers name is empty.  
+    d. The event organizers email address is invalid.
 
 
 ### You Will Know You Are Done When:
