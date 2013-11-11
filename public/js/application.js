@@ -10,4 +10,22 @@ $(document).ready(function() {
     var request = $.ajax({ url: $(this).attr('href'), type: 'delete' });
     request.done(function () { window.location = "/"; });
   });
+
+  $('form').on('submit', function(e) {
+    e.preventDefault()
+    var form_data = $(this).serialize()
+
+    $.ajax({
+      url: '/events/create',
+      type: 'post',
+      data: form_data
+    }).done(function(server_data) {
+      var parsed_data = $.parseJSON(server_data)
+
+      $('div#new_event').html(parsed_data['title'] + '<br>' + parsed_data['organizer_name'] + '<br>' + parsed_data['organizer_email'] + '<br>' + parsed_data['date'])
+
+    }).fail(function() {
+      console.log('failed!')
+    })
+  })
 });

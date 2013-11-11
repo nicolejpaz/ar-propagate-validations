@@ -1,0 +1,15 @@
+<h2>New Event:</h2>
+
+<form action="/events/create" method="post">
+  <input type="text" name="title" placeholder="Event Title"><br>
+
+  <input type="text" name="organizer_name" placeholder="Organizer Name"><br>
+
+  <input type="text" name="organizer_email" placeholder="Organizer Email"><br>
+
+  <input type="date" name="date" value="<%=@event_date%>"><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<div id="new_event"></div>
