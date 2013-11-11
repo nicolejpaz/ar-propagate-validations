@@ -17,11 +17,11 @@ post '/events/create' do
   @event_name = params[:organizer_name]
   @event_email = params[:organizer_email]
   @event_date = params[:date]
+
   @event = Event.create(title: params[:title], organizer_name: params[:organizer_name], organizer_email: params[:organizer_email], date: params[:date])
   if @event.errors.messages != {}
-    @errors = @event.errors
-    erb :event_new
+    {date: @event.errors[:date], organizer_name: @event.errors[:organizer_name], organizer_email: @event.errors[:organizer_email], title: @event.errors[:title]}.to_json
   else
-    redirect '/'
+    erb :event_new
   end
 end
